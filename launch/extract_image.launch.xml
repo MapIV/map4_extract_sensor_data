@@ -1,0 +1,12 @@
+<launch>
+  <arg name="output_folder" default="./image_output" />
+  <arg name="input_topic" default="/image_raw" />
+
+  <node pkg="map4_extract_sensor_data"
+        exec="extract_image_node_exec"
+        name="extract_image"
+        output="screen">
+    <param name="output_folder" value="$(var output_folder)" />
+    <remap from="input" to="$(var input_topic)" />
+  </node>
+</launch>
