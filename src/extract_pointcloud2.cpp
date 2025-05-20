@@ -9,7 +9,7 @@ ExtractPointcloud2Node::ExtractPointcloud2Node(const rclcpp::NodeOptions &option
     }
 
     pointcloud_sub_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
-        "input", 10,
+        "input", rclcpp::SensorDataQoS(),
         [this](const sensor_msgs::msg::PointCloud2::SharedPtr msg) {
             save_pointcloud(msg, output_folder_);
         });
