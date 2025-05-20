@@ -22,7 +22,7 @@ void ExtractPointcloud2Node::save_pointcloud(const sensor_msgs::msg::PointCloud2
         pcl::fromROSMsg(*msg, cloud);
         double ts = msg->header.stamp.sec + (double)msg->header.stamp.nanosec*std::pow(10, -9);
         std::string filename = folder + "/" + std::to_string(ts) + ".pcd";
-        pcl::io::savePCDFileASCII(filename, cloud);
+        pcl::io::savePCDFileBinaryCompressed(filename, cloud);
         RCLCPP_DEBUG(this->get_logger(), "Saved point cloud to %s", filename.c_str());
     } catch (const std::exception &e) {
         RCLCPP_ERROR(this->get_logger(), "Error saving point cloud: %s", e.what());
