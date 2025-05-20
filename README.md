@@ -9,13 +9,14 @@ Simple ROS2 node to extract sensor data. Tested in Humble.
 See launch files for usage. E.g.
 
 ```
-ros2 launch map4_extract_sensor_data extract_pointcloud2.launch.xml input_topic:=/lidar/front/points output_folder:=./ouster_data
+ros2 launch map4_extract_sensor_data extract_pointcloud2.launch.xml input_topic:=/lidar/front/points output_folder:=./pcd
 ```
 
 ```
-ros2 launch map4_extract_sensor_data extract_image.launch.xml input_topic:=/camera/front/flipped/image_raw output_folder:=./raw
+ros2 launch map4_extract_sensor_data extract_image.launch.xml input_topic:=/camera/image_raw output_folder:=./raw
 ```
 
 ```
-ros2 launch map4_extract_sensor_data extract_image.launch.xml input_topic:=/camera/front/flipped/image_color output_folder:=./raw
+ros2 launch map4_extract_sensor_data extract_compress_image.launch.xml input_topic:=/camera/image_raw/compressed output_folder:=./compressed
+
 ```
